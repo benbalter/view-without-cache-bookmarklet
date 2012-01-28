@@ -1,0 +1,1 @@
+javascript:for(var a="dontCache",b=(new Date).getTime(),a=escape(a),b=escape(b),c=document.location.search.substr(1).split("&"),d=c.length,e;d--;)if(e=c[d].split("="),e[0]==a){e[1]=b;c[d]=e.join("=");break}d<0&&(c[c.length]=[a,b].join("="));document.location.search=c.join("&");
