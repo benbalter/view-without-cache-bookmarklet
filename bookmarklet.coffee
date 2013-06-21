@@ -1,6 +1,5 @@
-key = escape "dontCache"
-value =  escape (new Date).getTime()
-param = "#{key}=#{value}"
+key = "dontCache"
+param = "#{key}=#{(new Date).getTime()}"
 query = document.location.search.substr(1)
 
 # no query vars
