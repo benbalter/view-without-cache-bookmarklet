@@ -1,1 +1,0 @@
-javascript:!function(){var t,n,e;return t="dontCache",n=""+t+"="+(new Date).getTime(),e=document.location.search.substr(1),0===e.length?document.location.search=n:-1===e.indexOf(t)?document.location.search+="&"+n:(e=e.split("&").map(function(e){return e.split("=")[0]!==t?e:n}),document.location.search=e.join("&"),void 0)}.call(this);
