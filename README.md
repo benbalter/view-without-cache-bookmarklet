@@ -22,8 +22,8 @@ You could just as easily manually add `?asdf` to a URL (followed by `?asdf1`, `?
 
 ## Usage
 
-1. Create a new bookmark
-2. Copy the code from [`dist/bookmarklet.js`](dist/bookmark.js) into the URL field, preceding the code with the word `javascript:` e.g., `javascript:function(){...`
+1. Visit [ben.balter.com/view-without-cache-bookmarklet/](http://ben.balter.com/view-without-cache-bookmarklet/)
+2. Drag the link to your bookmark bar
 3. Click bookmarklet on a page to reload the page sans cache
 
 ## Developing locally
