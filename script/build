@@ -3,3 +3,5 @@
 set -e
 
 grunt build
+
+script/build-page
