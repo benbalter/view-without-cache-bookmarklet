@@ -26,6 +26,15 @@ You could just as easily manually add `?asdf` to a URL (followed by `?asdf1`, `?
 2. Copy the code from [`dist/bookmarklet.js`](dist/bookmark.js) into the URL field
 3. Click bookmarklet on a page to reload the page sans cache
 
+## Developing locally
+
+I'd love your help making the script better. The source lives in `src` and the built files live in `dist`. To build locally:
+
+1. Clone down the repo and `cd` into the directory
+2. `npm install`
+3. Make your changes
+4. `grunt build`
+
 ## History
 
 Originally, [a Gist](https://gist.github.com/benbalter/1695742), migrated March 2015.
