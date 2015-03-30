@@ -14,7 +14,11 @@ This script works as a bookmarklet, quickly appending the current unix timestamp
 
 ## So this is like a hacking tool or something?
 
-No. This is used for testing caching problems. Besides, it'd be pretty hard to do much damage with a single browser.
+No. This is used for testing caching problems. Besides, it'd be pretty hard to do much damage with a single browser. For example, if you were at `https://github.com/benbalter/view-without-cache-bookmarklet` and clicked the bookmarklet, you'd be silently redirected to `https://github.com/benbalter/view-without-cache-bookmarklet?dontCache=1427733996267?dontCache=1427733996267`,
+
+## Isn't this overkill?
+
+You could just as easily manually add `?asdf` to a URL (followed by `?asdf1`, `?asdf2`, etc.) but you'll quickly start reusing URLs defeating the purpose, or will run into edge cases where the URL already has query vars. The script takes those edge cases into account, and automatically updates its own query var (and preserves other query vars) so you don't have to.
 
 ## Usage
 
