@@ -14,7 +14,7 @@ This script works as a bookmarklet, quickly appending the current unix timestamp
 
 ## So this is like a hacking tool or something?
 
-No. This is used for testing caching problems. Besides, it'd be pretty hard to do much damage with a single browser. For example, if you were at `https://github.com/benbalter/view-without-cache-bookmarklet` and clicked the bookmarklet, you'd be silently redirected to `https://github.com/benbalter/view-without-cache-bookmarklet?dontCache=1427733996267?dontCache=1427733996267`,
+No. This is used for testing caching problems. Besides, it'd be pretty hard to do much damage with a single browser. For example, if you were at `https://github.com/benbalter/view-without-cache-bookmarklet` and clicked the bookmarklet, you'd be silently redirected to `https://github.com/benbalter/view-without-cache-bookmarklet?dontCache=1427733996267`,
 
 ## Isn't this overkill?
 
