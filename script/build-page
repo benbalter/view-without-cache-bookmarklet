@@ -5,4 +5,4 @@ rm -f index.html
 template=`cat src/index.html`
 script=`cat dist/bookmark.js`
 
-echo "${template/$SRC$/$script}" >> index.html
+echo "${template/_SRC_/$script}" >> index.html
