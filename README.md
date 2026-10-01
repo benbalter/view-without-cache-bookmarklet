@@ -1,30 +1,30 @@
 # View without cache bookmarklet
 
-Appends the current unix timestamp as a query var to your browser's current page in order to break most caches
-
-[![Build Status](https://travis-ci.org/benbalter/view-without-cache-bookmarklet.svg?branch=master)](https://travis-ci.org/benbalter/view-without-cache-bookmarklet)
+Reloads the current page with a unique `dontCache` query parameter so caches see a URL they haven't stored and the server sends a fresh copy.
 
 ## Why
 
 Popular websites use content distribution networks (CDNs) and other caching strategies to reduce the load on their servers during high-traffic periods. While normally that's fine, sometimes you'd like to quickly bypass that cache, for example, when diagnosing a caching issue, or testing a new feature.
 
-## How
+## What it does
 
-This script works as a bookmarklet, quickly appending the current unix timestamp (an always unique string of numbers) to your browser's current URL, causing the web server to see a URL it's never seen before, and presumably bypassing the cache to serve up a fresh page.
+The bookmarklet sets `dontCache` to the current Unix timestamp in milliseconds and navigates there. Other query parameters and the `#hash` are kept exactly as they were, and clicking again updates the existing `dontCache` value instead of adding another:
 
-## So this is like a hacking tool or something?
+| Current URL | Goes to |
+| --- | --- |
+| `https://example.com/page` | `https://example.com/page?dontCache=1727740800000` |
+| `https://example.com/search?q=cats` | `https://example.com/search?q=cats&dontCache=1727740800000` |
+| `https://example.com/page?dontCache=1427733996267&a=1` | `https://example.com/page?dontCache=1727740800000&a=1` |
+| `https://example.com/page?xdontCache=1` | `https://example.com/page?xdontCache=1&dontCache=1727740800000` |
+| `https://example.com/docs#install` | `https://example.com/docs?dontCache=1727740800000#install` |
 
-No. This is used for testing caching problems. Besides, it'd be pretty hard to do much damage with a single browser. For example, if you were at `https://github.com/benbalter/view-without-cache-bookmarklet` and clicked the bookmarklet, you'd be silently redirected to `https://github.com/benbalter/view-without-cache-bookmarklet?dontCache=1427733996267`,
-
-## Isn't this overkill?
-
-You could just as easily manually add `?asdf` to a URL (followed by `?asdf1`, `?asdf2`, etc.) but you'll quickly start reusing URLs defeating the purpose, or will run into edge cases where the URL already has query vars. The script takes those edge cases into account, and automatically updates its own query var (and preserves other query vars) so you don't have to.
+It only helps with caches keyed on the full URL, which covers most CDNs and proxies. A cache that ignores the query string will still serve the cached page.
 
 ## Usage
 
-1. Visit [ben.balter.com/view-without-cache-bookmarklet/](http://ben.balter.com/view-without-cache-bookmarklet/)
-2. Drag the link to your bookmark bar
-3. Click bookmarklet on a page to reload the page sans cache
+1. Visit [ben.balter.com/bookmarklets](https://ben.balter.com/bookmarklets/#view-without-cache)
+2. Drag the "View without cache" link to your bookmark bar
+3. Click the bookmarklet on any page to reload it without the cache
 
 ## Developing locally
 
@@ -33,7 +33,8 @@ I'd love your help making the script better. The source lives in `src` and the b
 1. Clone down the repo and `cd` into the directory
 2. `npm install`
 3. Make your changes
-4. `grunt build`
+4. `npm test` to type check, lint, build, and run the tests
+5. `script/build` to rebuild `dist/bookmark.js` and `index.md`, and commit both
 
 ## History
 
